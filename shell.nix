@@ -2,7 +2,7 @@ with (import <nixpkgs> {}).pkgs;
 let pkg = haskellngPackages.callPackage
             ({ mkDerivation, base, getopt-generics, regex-compat, stdenv }:
              mkDerivation {
-               pname = "regex";
+               pname = "regex-split";
                version = "0.1.0.0";
                src = ./.;
                isLibrary = false;

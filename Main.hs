@@ -20,11 +20,8 @@ instance SG.HasDatatypeInfo Options
 writeLine :: Regex -> String -> IO ()
 writeLine regex_ line =
     case matchRegex regex_ line of
-        Just (match:_) -> do
-            print $ filter isAlphaNum match
-            print match
-            print line
-            appendFile ("_" ++ filter isAlphaNum match) line
+        Just (match:_) ->
+            appendFile ("_" ++ filter isAlphaNum match) $ line ++ "\n"
         _ -> return ()
 
 
