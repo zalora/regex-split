@@ -5,6 +5,6 @@ mkDerivation {
   src = ./.;
   isLibrary = false;
   isExecutable = true;
-  buildDepends = [ base getopt-generics regex-compat ];
+  executableHaskellDepends = [ base getopt-generics regex-compat ];
   license = stdenv.lib.licenses.mpl20;
 }

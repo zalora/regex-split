@@ -3,18 +3,9 @@
 {-# LANGUAGE RecordWildCards   #-}
 
 
-import qualified GHC.Generics                   as GG
-import qualified System.Console.GetOpt.Generics as SG
-
-import           Data.Char                      (isAlphaNum)
-import           Text.Regex                     (Regex, matchRegex, mkRegex)
-
-
-data Options = Options
-    { regex :: String
-    } deriving (Show, GG.Generic)
-instance SG.Generic Options
-instance SG.HasDatatypeInfo Options
+import           Data.Char          (isAlphaNum)
+import           System.Environment (getEnv)
+import           Text.Regex         (Regex, matchRegex, mkRegex)
 
 
 writeLine :: Regex -> String -> IO ()
@@ -36,5 +27,5 @@ otherMain regexString = do
 
 main :: IO ()
 main = do
-    _o@Options{..} <- SG.getArguments
+    regex <- getEnv "REGEX"
     otherMain regex

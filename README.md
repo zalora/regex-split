@@ -3,7 +3,7 @@
 Example usage:
 
 ```
-cat *.log | regex-split --regex '(..../../..)'
+cat *.log | REGEX='(..../../..)' regex-split
 ```
 
 `regex-split` reads standard input, match each line with the specified regex
